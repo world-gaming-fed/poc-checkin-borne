@@ -3,14 +3,25 @@ import { Link, withRouter } from 'react-router';
 import styles from '../components/Home.css'
 import 'whatwg-fetch';
 import 'isomorphic-fetch';
+import moment from 'moment';
+import Countdown from 'react-count-down'
 
 export default class App extends Component {
   static propTypes = {
     children: PropTypes.element.isRequired
   };
 
+  constructor(props){
+    super(props)
+    this.state = {
+      name: null,
+      start: null,
+      Chrono: null
+    }
+  }
+
   componentDidMount() {
-    fetch('https://www.wgf.gg/api/events/1b778de4-6661-4a8b-9e9f-7af9aa2c62a4')
+    fetch('https://www.wgf.gg/api/tournaments/event/1b778de4-6661-4a8b-9e9f-7af9aa2c62a4')
       .then(function(response) {
           if (response.status >= 400) {
              return null
@@ -18,11 +29,28 @@ export default class App extends Component {
         return response.json();
       }.bind(this))
      .then(function(tournament) {
-          console.log(tournament.name);
-   }.bind(this));
+          this.setState({
+            name: tournament.elements[0].name.fr,
+            start: tournament.elements[0].dates[0].start
+          })
+      }.bind(this))
+    ;
+
+    this.timer = setInterval(function(){
+      this.setState({
+       chrono: moment.utc(this.start).substract(23, 'M').toNow()
+      })
+    }.bind(this), 3000);
  }
 
+ componentWillUnmount () {
+     clearTimeout(this.timer)
+   }
+
+
+
   render() {
+    console.log(this.state.chrono)
     return (
       <div>
         <div className={styles.header}>
@@ -34,7 +62,12 @@ export default class App extends Component {
           </div>
         </div>
         <div className={styles.under}/>
-        <img src="https://placeholdit.imgix.net/~text?&w=650&h=150" alt="WGF" height="100px" width="100%" />
+        <div className={styles.stl}>
+          <img src="https://placeholdit.imgix.net/~text?&w=650&h=150" alt="WGF" height="100px" width="100%" />
+          <div className={styles.imgtournament}>
+            <h1>{this.state.name}</h1>
+          </div>
+        </div>
         {this.props.children}
       </div>
     );

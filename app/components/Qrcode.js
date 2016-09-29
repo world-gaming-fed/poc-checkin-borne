@@ -75,11 +75,6 @@ class QrCode extends Component {
   render() {
     return (
       <div>
-        <div className={styles.backButton}>
-          <Link to="/">
-            <i className="fa fa-arrow-left fa-3x" />
-          </Link>
-        </div>
         {this.props.children}
         <div className={styles.cam}>
           <QrReader
