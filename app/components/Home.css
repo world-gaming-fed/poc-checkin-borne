@@ -4,9 +4,16 @@
 }
 
 .header {
-  text-align: center;
   background-color: #2F4F4F;
-  height: 113px;
+  height: 75px;
+  position: relative;
+ }
+
+.header .logowgf {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  margin-left: -51px;
 }
 
 .under {
