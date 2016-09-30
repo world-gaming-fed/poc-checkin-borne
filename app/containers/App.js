@@ -14,9 +14,7 @@ export default class App extends Component {
   constructor(props){
     super(props)
     this.state = {
-      name: null,
-      start: null,
-      Chrono: null
+      name: null
     }
   }
 
@@ -27,49 +25,36 @@ export default class App extends Component {
              return null
            }
         return response.json();
-      }.bind(this))
+      })
+
      .then(function(tournament) {
           this.setState({
-            name: tournament.elements[0].name.fr,
-            start: tournament.elements[0].dates[0].start
+            name: tournament.elements[0].name.fr
           })
       }.bind(this))
-    ;
-
-    this.timer = setInterval(function(){
-      this.setState({
-       chrono: moment.utc(this.start).substract(23, 'M').toNow()
-      })
-    }.bind(this), 3000);
- }
-
- componentWillUnmount () {
-     clearTimeout(this.timer)
-   }
-
-
+}
 
   render() {
-    console.log(this.state.chrono)
     return (
-      <div>
-        <div className={styles.header}>
-          <Link to="/">
-            <img src="http://icdn.pro/images/fr/m/a/maison-maison-icone-5150-48.png" alt="Home" height="70px" width="70px" />
-          </Link>
-          <div className={styles.logowgf}>
-            <img src="./components/wgf.png" alt="WGF" width="102px" height="32px" />
+        <div>
+          <div className={styles.header}>
+            <Link to="/">
+              <img src="http://icdn.pro/images/fr/m/a/maison-maison-icone-5150-48.png" alt="Home" height="45px" width="45px" />
+            </Link>
+            <div className={styles.logowgf}>
+              <img src="./components/wgf.png" alt="WGF" width="102px" height="32px" />
+            </div>
           </div>
-        </div>
-        <div className={styles.under}/>
-        <div className={styles.stl}>
-          <img src="https://placeholdit.imgix.net/~text?&w=650&h=150" alt="WGF" height="100px" width="100%" />
-          <div className={styles.imgtournament}>
-            <h1>{this.state.name}</h1>
+          <div className={styles.under}>
           </div>
+          <div className={styles.stl}>
+            <img src="https://placeholdit.imgix.net/~text?&w=650&h=150" alt="WGF" height="100px" width="100%" />
+            <div className={styles.imgtournament}>
+              <h1>{this.state.name}</h1>
+            </div>
+          </div>
+          {this.props.children}
         </div>
-        {this.props.children}
-      </div>
     );
   }
 }

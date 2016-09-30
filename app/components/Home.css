@@ -11,14 +11,14 @@
 
 .header .logowgf {
   position: absolute;
-  top: 10px;
+  top: 20px;
   left: 50%;
-  margin-left: -51px;
+  margin-left: -71px
 }
 
 .under {
   background-color: #DDB726;
-  height: 30px;
+  height: 20.5px;
 }
 
 .stl {
@@ -44,7 +44,7 @@
    color: #2F4F4F;
   text-align: center;
   font-family: 'Lato', sans-serif;
-  font-size: 4rem;
+  font-size: 3rem;
 }
 
 .container a {
@@ -54,7 +54,9 @@
 }
 
 .container p {
+  postion: absolute;
   color: #2F4F4F;
   font-family: 'Lato', sans-serif;
-  font-size: 3.4rem;
+  font-size: 1rem;
+  text-align: center;
 }
