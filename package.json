@@ -103,6 +103,7 @@
     "react": "^15.3.1",
     "react-count-down": "^1.0.3",
     "react-dom": "^15.3.1",
+    "react-qr-reader": "^0.2.9",
     "react-redux": "^4.4.5",
     "react-router": "^2.7.0",
     "react-router-redux": "^4.0.5",

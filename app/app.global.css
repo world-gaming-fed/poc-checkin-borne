@@ -2,7 +2,6 @@ body {
   color: #2F4F4F;
   margin: 0 auto;
   background-color: #E1EEF6;
-  font-family: Lato-Bold, Lato-Bold, Helvetica Neue;
   overflow-y: hidden;
 }
 
@@ -11,24 +10,24 @@ h2 {
   color:  #2F4F4F;
   letter-spacing: -.025em;
   color: black;
+  font-family: 'Lato', sans-serif;
 }
 
 h1 {
   margin: 0;
-}
-
-p {
-  font-size: 24px;
+  font-family: 'Lato', sans-serif;
 }
 
 li {
   list-style: none;
+  font-family: 'Lato', sans-serif;
 }
 
 a {
   color: white;
   opacity: .75;
   text-decoration: none;
+  font-family: 'Lato', sans-serif;
 }
 
 a:hover {

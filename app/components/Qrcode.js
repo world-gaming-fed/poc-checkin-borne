@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styles from './Counter.css';
+import forme from './circle.css';
 import QrReader from 'react-qr-reader';
 import { Route, IndexRoute, browserHistory,  Redirect,  Link, withRouter } from 'react-router';
 import  Validation from './Validation';
@@ -11,17 +12,6 @@ class QrCode extends Component {
     this.state = {
       result: null,
     }
-  }
-
-  handleScan(data){
-    console.log(data)
-    this.setState({
-      result: data,
-    })
-  }
-
-  handleError(err){
-    console.error(err)
   }
 
   isValid(val) {
@@ -52,19 +42,20 @@ class QrCode extends Component {
 
     result = (
       <div className={styles.container}>
-        <h2>Scannez votre Qr Code</h2>
+        <a>Scannez votre Qr Code sur la borne</a>
       </div>
     )
     console.log(this.state.result)
     if (this.state.result) {
       if (this.isValid(this.state.result)) {
         var playerUUID = this.getPlayerFromUUID(this.state.result)
+        console.log(playerUUID)
         this.props.router.push('/validation/' + playerUUID);
       }
       else {
         result = (
           <div className={styles.container}>
-            <h2>Qr Code invalide</h2>
+            <a>Qr Code invalide</a>
           </div>
         )
       }
@@ -72,16 +63,33 @@ class QrCode extends Component {
     return result
   }
 
+  componentDidMount (){
+      this._input.focus();
+    }
+
+  myfunc(e) {
+    if (e.currentTarget.value.length === 73)
+      {
+        this.setState({
+          result: e.currentTarget.value,
+        })
+      }
+  }
+
   render() {
     return (
-      <div>
+        <div>
         {this.props.children}
         <div className={styles.cam}>
-          <QrReader
-            handleError={this.handleError}
-            handleScan={this.handleScan.bind(this)}/>
-          {this.renderResult()}
+          <form >
+            <input type="text" pattern=".{73}|.{73,}" maxLength="73" onChange={(e) => this.myfunc(e)} ref={(c) => this._input = c}/>
+          </form>
         </div>
+        <div className={forme.circYellow}>
+          <img src="./components/asset/q-r.svg" alt="qrcode" height="133px" width="133px"/>
+        </div>
+          <br/><br/> 
+          {this.renderResult()}
       </div>
     );
   }
