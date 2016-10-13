@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router';
+import { Link, withRouter } from 'react-router';
 import styles from './Home.css';
 import Btn from './button'
 import moment from 'moment';
 import Countdown from 'react-count-down';
 import 'whatwg-fetch';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 import 'isomorphic-fetch';
 
-export default class Home extends Component {
+ class Home extends Component {
 
   constructor(props){
     super(props)
@@ -20,7 +22,7 @@ export default class Home extends Component {
   }
 
   componentDidMount() {
-    fetch('https://www.wgf.gg/api/tournaments/event/1b778de4-6661-4a8b-9e9f-7af9aa2c62a4')
+    fetch('https://www.wgf.gg/api/tournaments/event/' + this.props.eventId)
       .then(function(response) {
           if (response.status >= 400) {
              return null
@@ -64,3 +66,9 @@ export default class Home extends Component {
     );
   }
 }
+function mapStateToProps(state) {
+  return {
+    eventId: state.event.eventId
+  };
+}
+export default connect(mapStateToProps)(Home);

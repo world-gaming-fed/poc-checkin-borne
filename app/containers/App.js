@@ -4,12 +4,11 @@ import _ from 'lodash'
 import styles from '../components/Home.css'
 import 'whatwg-fetch';
 import 'isomorphic-fetch';
-import moment from 'moment';
 import Countdown from 'react-count-down'
 
 export default class App extends Component {
   static propTypes = {
-    children: PropTypes.element.isRequired
+    children: PropTypes.element.isRequired,
   };
 
   constructor(props){
@@ -17,21 +16,6 @@ export default class App extends Component {
     this.state = {
       name: null
     }
-  }
-
-  componentDidMount() {
-    fetch('https://www.wgf.gg/api/events/1b778de4-6661-4a8b-9e9f-7af9aa2c62a4')
-      .then(function(response) {
-          if (response.status >= 400) {
-             return null
-           }
-        return response.json();
-      })
-     .then(function(event) {
-        this.setState({
-          event: event
-        })
-      }.bind(this))
   }
 
   renderTop (event) {
@@ -62,6 +46,11 @@ export default class App extends Component {
             </Link>
             <div className={styles.logowgf}>
               <img src="./components/asset/wgf.png" alt="WGF" width="200px" height="55px" />
+            </div>
+            <div className={styles.setting}>
+              <Link to="/setting">
+                <i className="fa fa-cog" ></i>
+              </Link>
             </div>
           </div>
           <div className={styles.under}>
