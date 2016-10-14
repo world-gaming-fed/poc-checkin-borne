@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router';
 import styles from './Home.css';
+import _ from 'lodash'
 import Btn from './button'
 import moment from 'moment';
 import Countdown from 'react-count-down';
@@ -8,6 +9,8 @@ import 'whatwg-fetch';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import 'isomorphic-fetch';
+import ButtonDisabled from './buttonDisable'
+import ButtonControl from './buttonControl'
 
  class Home extends Component {
 
@@ -22,6 +25,7 @@ import 'isomorphic-fetch';
   }
 
   componentDidMount() {
+    if (!_.isEmpty(this.props.eventId)) {
     fetch('https://www.wgf.gg/api/tournaments/event/' + this.props.eventId)
       .then(function(response) {
           if (response.status >= 400) {
@@ -32,7 +36,7 @@ import 'isomorphic-fetch';
 
      .then(function(tournament) {
         var startDate = tournament.elements[0].dates[0].start
-        var chrono = moment.utc(startDate).add(2, 'M').add(23, 'd').add(19, 'H').locale('fr');
+        var chrono = moment.utc(startDate).locale('fr');
           this.setState({
             name: tournament.elements[0].name.fr,
             start: startDate,
@@ -46,6 +50,10 @@ import 'isomorphic-fetch';
            })
          }.bind(this), 100);
       }.bind(this))
+    }
+    else {
+      this.props.router.push('/setting')
+    }
  }
 
  componentWillUnmount () {
@@ -59,7 +67,7 @@ import 'isomorphic-fetch';
           <h2>Bienvenue sur la borne d'inscription </h2>
           <img src="http://www.icone-png.com/png/0/94.png" height="45px" width="45px"/>
           <p>Fin du check-in {this.state.hours}</p>
-          <Link to="/Qrcode"><Btn>Check in</Btn></Link>
+          <ButtonControl/>
         </div>
         {this.props.children}
       </div>
@@ -71,4 +79,4 @@ function mapStateToProps(state) {
     eventId: state.event.eventId
   };
 }
-export default connect(mapStateToProps)(Home);
+export default withRouter(connect(mapStateToProps)(Home));

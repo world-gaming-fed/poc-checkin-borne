@@ -21,6 +21,31 @@
    vertical-align: middle;
    line-height:150px;
   }
+
+  .buttonDisabled {
+     border-top: 1px solid #cdcdd8;
+     background: #cdcdd8;
+     background: -webkit-gradient(linear, left top, left bottom, from(#cdcdd8), to(#cdcdd8));
+     background: -webkit-linear-gradient(top, #cdcdd8, #cdcdd8);
+     background: -moz-linear-gradient(top, #cdcdd8, #cdcdd8);
+     background: -ms-linear-gradient(top, #cdcdd8, #cdcdd8);
+     background: -o-linear-gradient(top, #cdcdd8, #cdcdd8);
+     padding: 17px 34px;
+     -webkit-border-radius: 40px;
+     -moz-border-radius: 40px;
+     border-radius: 40px;
+     -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+     -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+     box-shadow: rgba(0,0,0,1) 0 1px 0;
+     text-shadow: rgba(0,0,0,.4) 0 1px 0;
+     color: #2f4f4f;
+     font-size: 24px;
+     font-family: Georgia, Serif;
+     text-decoration: none;
+     vertical-align: middle;
+     line-height:150px;
+    }
+
 .button:hover {
    border-top-color: #ddb826;
    background: #ddb826;

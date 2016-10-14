@@ -41,9 +41,6 @@ export default class App extends Component {
     return (
         <div>
           <div className={styles.header}>
-            <Link to="/">
-              <i className="fa fa-angle-left" aria-hidden="true"></i>
-            </Link>
             <div className={styles.logowgf}>
               <img src="./components/asset/wgf.png" alt="WGF" width="200px" height="55px" />
             </div>
