@@ -60,6 +60,7 @@ color: #ffffff;
   font-size: 5rem;
   color:  white;
   letter-spacing: -.025em;
+  text-shadow: 3px 3px black;
 }
 
 .container h2 {
