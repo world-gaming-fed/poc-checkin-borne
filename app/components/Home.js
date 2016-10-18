@@ -11,10 +11,11 @@ import { connect } from 'react-redux';
 import 'isomorphic-fetch';
 import ButtonDisabled from './buttonDisable'
 import ButtonControl from './buttonControl'
+import EventContainer from './eventContainer'
 
  class Home extends Component {
 
-  constructor(props){
+  constructor(props)  {
     super(props)
     this.state = {
       name: null,
@@ -61,17 +62,17 @@ import ButtonControl from './buttonControl'
    }
 
   render() {
-    return (
-      <div>
-        <div className={styles.container}>
-          <h2>Bienvenue sur la borne d'inscription </h2>
-          <img src="http://www.icone-png.com/png/0/94.png" height="45px" width="45px"/>
-          <p>Fin du check-in {this.state.hours}</p>
-          <ButtonControl/>
-        </div>
-        {this.props.children}
-      </div>
-    );
+      return (
+        <div>
+          <div className={styles.container}>
+            <h2>Bienvenue sur la borne d'inscription </h2>
+            <img src="http://www.icone-png.com/png/0/94.png" height="45px" width="45px"/>
+            <p>Fin du check-in {this.state.hours}</p>
+            <ButtonControl/>
+          </div>
+          {this.props.children}
+       </div>
+     );
   }
 }
 function mapStateToProps(state) {

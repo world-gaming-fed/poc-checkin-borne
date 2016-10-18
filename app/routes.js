@@ -9,13 +9,16 @@ import Invalid from './components/invalid'
 import Settings from './components/setting'
 import Layout from './components/Layout'
 import SearchEvent from './components/search'
+import Init from './components/init'
 
 export default (
-  <Route path="/" component={App}>
-    <Route path="/setting" component={Settings}/>
-    <Route path="/search" component={SearchEvent}/>
-    <IndexRoute component={HomePage}/>
-    <Route component={Layout}>
+  <Route path="/app" component={App}>
+    <IndexRoute component={HomeBorne}/>
+    <Route path="/settings" component={Settings}>
+      <Route path="/search" component={SearchEvent}/>
+    </Route>
+    <Route path="/checkin" component={Layout}>
+      <IndexRoute component={HomePage}/>
       <Route path="/QrCode" component={QrCode}/>
       <Route path="/validation/:uuid" component={Validation}/>
       <Route path="felicitation/:name" component={Felicitation}/>
@@ -25,3 +28,19 @@ export default (
     <Route path="/search" component={SearchEvent}/>
   </Route>
 );
+
+/* export default (
+  <Route path="/app" component={App}>
+    <IndexRoute component={HomePage}/> // Bienvenue sur la borne, choisissez un mode
+    <Route path="/settings" component={Settings}>
+      <Route path="/event" component={SearchEvent}/>
+    </Route>
+    <Route path="/checkin" component={CheckinLayout}>
+      <IndexRoute component={HomeCheckin} />
+      <Route path="/QrCode" component={QrCode}/>
+      <Route path="/validation/:uuid" component={Validation}/>
+      <Route path="felicitation/:name" component={Felicitation}/>
+      <Route path="/invalid" component={Invalid}/>
+    </Route>
+  </Route>
+);*/

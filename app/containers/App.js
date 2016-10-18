@@ -6,7 +6,7 @@ import 'whatwg-fetch';
 import 'isomorphic-fetch';
 import Countdown from 'react-count-down'
 
-export default class App extends Component {
+class App extends Component {
   static propTypes = {
     children: PropTypes.element.isRequired,
   };
@@ -58,3 +58,4 @@ export default class App extends Component {
     );
   }
 }
+export default withRouter(App);

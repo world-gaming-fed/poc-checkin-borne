@@ -17,7 +17,7 @@ class Felicitation extends Component {
 
   componentDidMount () {
     this.timer = setTimeout( function() {
-      this.props.router.push('/')
+      this.props.router.push('/app')
     }.bind(this), 10000);
   }
 
