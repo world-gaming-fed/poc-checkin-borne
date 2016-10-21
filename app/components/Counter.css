@@ -66,6 +66,14 @@
 }
 
 .setting {
-  margin-top: 40px;
+  max-height: 20em;
+  max-width: 75%;
+       overflow-x: hidden;
+       overflow-y: auto;
+  margin: 0 auto;
   text-align: center;
+}
+
+.setting div {
+     border: thin solid black;
 }

@@ -17,7 +17,7 @@ class Felicitation extends Component {
 
   componentDidMount () {
     this.timer = setTimeout( function() {
-      this.props.router.push('/app')
+      this.props.router.push('/checkin')
     }.bind(this), 10000);
   }
 
@@ -36,7 +36,7 @@ class Felicitation extends Component {
         </div>
         <div className={styles.container}>
           <a><br/>{this.props.params.name} <br/> Inscription validée</a>
-          <br/><Link to="/"><Btn>Ok</Btn></Link>
+          <br/><Link to="/checkin"><Btn>OK</Btn></Link>
         </div>
       </div>
     );

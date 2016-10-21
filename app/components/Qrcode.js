@@ -65,7 +65,14 @@ class QrCode extends Component {
 
   componentDidMount (){
       this._input.focus();
+      this.timer = setTimeout( function() {
+        this.props.router.push('/checkin')
+      }.bind(this), 15000);
     }
+
+  componentWillUnmount () {
+    clearTimeout(this.timer)
+  }
 
   myfunc(e) {
     if (e.currentTarget.value.length === 73)
@@ -88,7 +95,7 @@ class QrCode extends Component {
         <div className={forme.circYellow}>
           <img src="./components/asset/q-r.svg" alt="qrcode" height="133px" width="133px"/>
         </div>
-          <br/><br/> 
+          <br/><br/>
           {this.renderResult()}
       </div>
     );

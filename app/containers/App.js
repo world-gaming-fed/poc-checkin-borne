@@ -44,11 +44,6 @@ class App extends Component {
             <div className={styles.logowgf}>
               <img src="./components/asset/wgf.png" alt="WGF" width="200px" height="55px" />
             </div>
-            <div className={styles.setting}>
-              <Link to="/setting">
-                <i className="fa fa-cog" ></i>
-              </Link>
-            </div>
           </div>
           <div className={styles.under}>
           </div>
@@ -58,4 +53,4 @@ class App extends Component {
     );
   }
 }
-export default withRouter(App);
+export default withRouter(App)

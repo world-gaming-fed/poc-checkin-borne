@@ -9,19 +9,18 @@ import Invalid from './components/invalid'
 import Settings from './components/setting'
 import Layout from './components/Layout'
 import SearchEvent from './components/search'
-import Init from './components/init'
+import HomeBorne from './components/homeBorne'
 
 export default (
-  <Route path="/app" component={App}>
+  <Route path="/" component={App}>
     <IndexRoute component={HomeBorne}/>
-    <Route path="/settings" component={Settings}>
+    <Route path="/settings" component={Settings}/>
       <Route path="/search" component={SearchEvent}/>
-    </Route>
     <Route path="/checkin" component={Layout}>
       <IndexRoute component={HomePage}/>
       <Route path="/QrCode" component={QrCode}/>
       <Route path="/validation/:uuid" component={Validation}/>
-      <Route path="felicitation/:name" component={Felicitation}/>
+      <Route path="/felicitation/:name" component={Felicitation}/>
       <Route path="/invalid" component={Invalid}/>
     </Route>
     <Route path="/setting" component={Settings}/>
