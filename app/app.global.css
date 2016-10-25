@@ -1,5 +1,6 @@
 body {
   color: #2F4F4F;
+  cursor: pointer;
   margin: 0 auto;
   background-color: #E1EEF6;
   font-family: 'Lato', sans-serif;
@@ -37,4 +38,22 @@ a:hover {
   cursor: pointer;
 }
 
-/*@import url('./components/react-search.css')*/
+.autocomplete__items {
+  background: white;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.autocomplete__selected {
+  background: white;
+}
+
+.autocomplete__menu .autocomplete__item {
+    padding: 10px 0px 10px 0px;
+    border-top: thin solid black;
+}
+
+.autocomplete__menu .autocomplete__item:hover {
+  background: black;
+  color: white;
+}

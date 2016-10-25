@@ -67,13 +67,18 @@
 
 .setting {
   max-height: 20em;
-  max-width: 75%;
+  max-width: 60%;
        overflow-x: hidden;
        overflow-y: auto;
   margin: 0 auto;
   text-align: center;
 }
 
+.setting ul {
+  padding-left: 0px;
+}
+
 .setting div {
-     border: thin solid black;
+  border: thin solid black;
+  cursor: pointer;
 }
