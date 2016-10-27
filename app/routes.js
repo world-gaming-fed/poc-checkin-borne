@@ -10,12 +10,18 @@ import Settings from './components/setting'
 import Layout from './components/Layout'
 import SearchEvent from './components/search'
 import HomeBorne from './components/homeBorne'
+import Login from './components/login'
+import ValidationLogin from './components/ValidLogin'
+import InvalidLogin from './components/invalidLogin'
 
 export default (
   <Route path="/" component={App}>
     <IndexRoute component={HomeBorne}/>
     <Route path="/settings" component={Settings}/>
       <Route path="/search" component={SearchEvent}/>
+      <Route path="/login" component={Login}/>
+      <Route path="/invalidLogin" component={InvalidLogin}/>
+      <Route path="/ValidationLogin/:uuid" component={ValidationLogin}/>
     <Route path="/checkin" component={Layout}>
       <IndexRoute component={HomePage}/>
       <Route path="/QrCode" component={QrCode}/>

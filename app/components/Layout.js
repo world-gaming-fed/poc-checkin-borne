@@ -23,7 +23,7 @@ class Layout extends Component {
             </Link>
           </div>
           <div className={BorneStyle.homeHide}>
-            <Link to="/">
+            <Link to="/login">
               <i className="fa fa-cog" ></i>
             </Link>
           </div>

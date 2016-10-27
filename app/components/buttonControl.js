@@ -9,7 +9,7 @@ import Btn from './button'
 class ButtonControl extends Component {
   render() {
     return (
-        _.isEmpty(this.props.eventId) ? <ButtonDisabled>Check in</ButtonDisabled> : <Link to="/Qrcode"><Btn>Check in</Btn></Link>
+        _.isEmpty(this.props.eventId) ? <ButtonDisabled>CHECK-IN</ButtonDisabled> : <Link to="/Qrcode"><Btn>CHECK-IN</Btn></Link>
     );
   }
 }

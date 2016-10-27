@@ -43,13 +43,13 @@ import EventContainer from './eventContainer'
             start: startDate,
             utcDate: chrono
           })
-          this.timer = setInterval(function(){
+          this.timer = setInterval( function (){
             var date = this.state.utcDate
-            var compt = date.add(1, 'm')
+            var compt = date.add(1, 's')
             this.setState({
              hours: compt.toNow()
            })
-         }.bind(this), 100);
+         }.bind(this), 1000);
       }.bind(this))
     }
     else {
@@ -65,7 +65,7 @@ import EventContainer from './eventContainer'
       return (
         <div>
           <div className={styles.container}>
-            <h2>Bienvenue sur la borne d'inscription </h2>
+            <h2>BIENVENUE SUR <br/> LA BORNE D'INSCRIPTION </h2>
             <img src="http://www.icone-png.com/png/0/94.png" height="45px" width="45px"/>
             <p>Fin du check-in {this.state.hours}</p>
             <ButtonControl/>

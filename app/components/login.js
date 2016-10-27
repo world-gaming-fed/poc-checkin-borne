@@ -4,10 +4,10 @@ import hmstyle from './Home.css';
 import forme from './circle.css';
 import QrReader from 'react-qr-reader';
 import { Route, IndexRoute, browserHistory,  Redirect,  Link, withRouter } from 'react-router';
-import  Validation from './Validation';
+import  ValidationLogin from './ValidLogin';
 
 
-class QrCode extends Component {
+class Login extends Component {
   constructor(props){
     super(props)
     this.state = {
@@ -43,7 +43,7 @@ class QrCode extends Component {
 
     result = (
       <div className={hmstyle.container}>
-        <p>SCANNEZ VOTRE <br/> QRCODE SUR LA BORNE</p>
+        <p>VEUILLEZ SCANNEZ VOTRE QRCODE <br/> D'ORGANISATEUR</p>
       </div>
     )
     console.log(this.state.result)
@@ -51,7 +51,7 @@ class QrCode extends Component {
       if (this.isValid(this.state.result)) {
         var playerUUID = this.getPlayerFromUUID(this.state.result)
         console.log(playerUUID)
-        this.props.router.push('/validation/' + playerUUID);
+        this.props.router.push('/ValidationLogin/' + playerUUID);
       }
       else {
         result = (
@@ -68,7 +68,7 @@ class QrCode extends Component {
       this._input.focus();
       this.timer = setTimeout( function() {
         this.props.router.push('/checkin')
-      }.bind(this), 15000);
+      }.bind(this), 20000);
     }
 
   componentWillUnmount () {
@@ -102,4 +102,4 @@ class QrCode extends Component {
     );
   }
 }
-export default withRouter (QrCode);
+export default withRouter (Login);

@@ -66,8 +66,8 @@ const SearchEvent = React.createClass({
 
     return (
       <div>
-        <div className={styles.container}>
-          <h2> Saisissez le nom de votre tournoi </h2>
+        <div className={hmstyle.container}>
+          <h2>SAISISSEZ LE NOM DE VOTRE TOURNOI</h2>
           <img src="./components/asset/organization.svg" alt="wgf" height="45px" width="45px"></img>
         </div>
         <div className={styles.setting}>

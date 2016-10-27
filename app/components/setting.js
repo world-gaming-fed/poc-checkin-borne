@@ -28,10 +28,10 @@ class Settings extends Component {
             <i className="fa fa-angle-left" aria-hidden="true"></i>
           </Link>
         </div>
-        <div className={SetStyles.setting}>
-          <h2> Parametres de tournoi </h2>
+        <div className={hmstyle.container}>
+          <h2>PARAMETRES DE TOURNOI</h2>
           <Link to="/search">
-            <img src="http://www.sabletopia.co.uk/wp-content/uploads/2013/09/search-2561.png" alt="Search"/>
+            <img src="http://www.sabletopia.co.uk/wp-content/uploads/2013/09/search-2561.png" width="200px" height="200px" alt="Search"/>
           </Link>
         </div>
       </div>
