@@ -60,7 +60,6 @@ componentDidMount() {
         </div>
         );
     }
-      console.log(this.state.name)
       return (
         <div>
           <div className={BorneStyle.setting}>

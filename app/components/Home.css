@@ -85,3 +85,8 @@ color: #ffffff;
   font-size: 2rem;
   text-align: center;
 }
+
+.bar {
+  background-color: black;
+  color: yellow;
+}

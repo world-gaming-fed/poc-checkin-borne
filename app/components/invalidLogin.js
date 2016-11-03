@@ -6,6 +6,7 @@ import { Route, IndexRoute, browserHistory,  Redirect,  Link, withRouter } from 
 import { createStore } from 'redux';
 import Qrcode from './Qrcode';
 import forme from './circle.css'
+import LayStyles from './layout.css'
 
 class InvalidLogin extends Component {
   static PropTypes = {
@@ -29,6 +30,11 @@ class InvalidLogin extends Component {
   render () {
     return (
       <div>
+        <div className={LayStyles.layout}>
+          <Link to="/checkin">
+            <i className="fa fa-angle-left" aria-hidden="true"></i>
+          </Link>
+        </div>
         <div className={styles.container}>
           <br/>
           <div className={forme.circRed}>

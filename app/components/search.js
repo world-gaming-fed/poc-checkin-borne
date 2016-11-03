@@ -39,9 +39,11 @@ const SearchEvent = React.createClass({
           return response.json();
         })
      .then((results) => {
-        if(results.elements != undefined){
-          let items = results.elements.map( (item, i) => {return {id: i, value: item.name } })
-          this.setState({ events: items, originalEvents: results.elements})
+        if(results.elements != undefined) {
+          let items = _.filter(results.elements, {type: "TOURNAMENT"})
+          items = items.map( (item, i) => {return {id: i, value: item.name } })
+          console.log(items)
+          this.setState({ events: items, originalEvents: _.filter(results.elements, {type: "TOURNAMENT"})})
           cb(searchValue)
         }
       })
@@ -87,7 +89,7 @@ const SearchEvent = React.createClass({
 })
 function mapStateToProps(state) {
   return {
-    eventId: state.event.eventId
+    eventId: state.event.eventId,
   };
 }
 

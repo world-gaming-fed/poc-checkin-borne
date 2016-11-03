@@ -5,7 +5,7 @@ import forme from './circle.css';
 import QrReader from 'react-qr-reader';
 import { Route, IndexRoute, browserHistory,  Redirect,  Link, withRouter } from 'react-router';
 import  ValidationLogin from './ValidLogin';
-
+import LayStyles from './layout.css'
 
 class Login extends Component {
   constructor(props){
@@ -88,6 +88,11 @@ class Login extends Component {
     return (
         <div>
         {this.props.children}
+        <div className={LayStyles.layout}>
+          <Link to="/checkin">
+            <i className="fa fa-angle-left" aria-hidden="true"></i>
+          </Link>
+        </div>
         <div className={styles.cam}>
           <form >
             <input type="text" pattern=".{73}|.{73,}" maxLength="73" onChange={(e) => this.myfunc(e)} ref={(c) => this._input = c}/>

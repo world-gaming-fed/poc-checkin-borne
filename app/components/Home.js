@@ -1,17 +1,20 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router';
 import styles from './Home.css';
-import _ from 'lodash'
-import Btn from './button'
+import _ from 'lodash';
+import Btn from './button';
 import moment from 'moment';
 import Countdown from 'react-count-down';
 import 'whatwg-fetch';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import 'isomorphic-fetch';
-import ButtonDisabled from './buttonDisable'
-import ButtonControl from './buttonControl'
-import EventContainer from './eventContainer'
+import { setCapacity } from '../actions/eventAction'
+import ButtonDisabled from './buttonDisable';
+import ButtonControl from './buttonControl';
+import EventContainer from './eventContainer';
+import Progress from 'react-progressbar';
+import { Line, Circle } from 'rc-progress';
 
  class Home extends Component {
 
@@ -21,7 +24,7 @@ import EventContainer from './eventContainer'
       name: null,
       start: null,
       chrono: null,
-      hours: null
+      hours: null,
     }
   }
 
@@ -43,13 +46,14 @@ import EventContainer from './eventContainer'
             start: startDate,
             utcDate: chrono
           })
-          this.timer = setInterval( function (){
+          this.timer = setInterval(() =>{
             var date = this.state.utcDate
             var compt = date.add(1, 's')
             this.setState({
-             hours: compt.toNow()
+             hours: compt.toNow(),
            })
-         }.bind(this), 1000);
+         }, 1000);
+      this.props.setCapacity(tournament.elements[0].maximumCapacity)
       }.bind(this))
     }
     else {
@@ -59,7 +63,7 @@ import EventContainer from './eventContainer'
 
  componentWillUnmount () {
      clearTimeout(this.timer)
-   }
+  }
 
   render() {
       return (
@@ -77,7 +81,11 @@ import EventContainer from './eventContainer'
 }
 function mapStateToProps(state) {
   return {
-    eventId: state.event.eventId
+    eventId: state.event.eventId,
+    capacity: state.event.capacity
   };
 }
-export default withRouter(connect(mapStateToProps)(Home));
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ setCapacity }, dispatch);
+}
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Home));

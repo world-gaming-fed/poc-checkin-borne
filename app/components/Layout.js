@@ -8,8 +8,13 @@ import { composeWithPromise } from 'react-komposer';
 import _ from 'lodash'
 import EventContainer from './eventContainer'
 import BorneStyle from './Borne.css'
+import { bindActionCreators } from 'redux';
+import { setCapacity } from '../actions/eventAction'
+import ProgressBar from './ProgressBar'
+import Progresstyle from './progressBar.css'
 
 class Layout extends Component {
+
   render () {
     const eventId = this.props.eventId
     if (_.isEmpty(this.props.eventId)) {
@@ -30,6 +35,10 @@ class Layout extends Component {
           <EventContainer eventId={eventId}>
             {this.props.children}
           </EventContainer>
+          <div>
+            <br/>
+            <ProgressBar/>
+          </div>
         </div>
     );
   }
@@ -37,7 +46,11 @@ class Layout extends Component {
 
 function mapStateToProps(state) {
   return {
-    eventId: state.event.eventId
+    eventId: state.event.eventId,
+    capacity: state.event.capacity
   };
 }
-export default withRouter(connect(mapStateToProps)(Layout));
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ setCapacity }, dispatch);
+}
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Layout));
