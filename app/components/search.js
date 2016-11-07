@@ -42,7 +42,6 @@ const SearchEvent = React.createClass({
         if(results.elements != undefined) {
           let items = _.filter(results.elements, {type: "TOURNAMENT"})
           items = items.map( (item, i) => {return {id: i, value: item.name } })
-          console.log(items)
           this.setState({ events: items, originalEvents: _.filter(results.elements, {type: "TOURNAMENT"})})
           cb(searchValue)
         }

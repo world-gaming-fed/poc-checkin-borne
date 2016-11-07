@@ -18,7 +18,6 @@ class EventContainer extends Component {
     const event = this.props.event
     return (
       <div>
-        {console.log(event)}
         <EventHeader event={event}/>
         { this.props.children }
       </div>

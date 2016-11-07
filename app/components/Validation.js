@@ -28,11 +28,9 @@ class Validation extends Component {
         return response.json();
       }.bind(this))
       .then(function(player) {
-        console.log(player.alias)
         return this.props.router.push('/felicitation/' + player.alias)
       }.bind(this))
       .catch(function(err) {
-        console.log(err)
       })
     ;
  }

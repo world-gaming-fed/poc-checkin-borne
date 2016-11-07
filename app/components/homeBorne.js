@@ -43,23 +43,28 @@ componentDidMount() {
   }
 }
 
+  emptyError() {
+    return (
+      <div>
+        <div className={styles.container}>
+          <h2>Bienvenue sur la Borne</h2> <br/>
+          <Link to="/setting">
+            <a>
+              <div className={BorneStyle.bord}>
+                <p> Veuillez configurer votre tournoi ici</p>
+              </div>
+            </a>
+          </Link>
+        </div>
+      </div>
+      );
+  }
+
   render () {
     if (_.isEmpty(this.props.eventId)) {
-      return (
-        <div>
-          <div className={styles.container}>
-            <h2>Bienvenue sur la Borne</h2> <br/>
-            <Link to="/setting">
-              <a>
-                <div className={BorneStyle.bord}>
-                  <p> Veuillez configurer votre tournoi ici</p>
-                </div>
-              </a>
-            </Link>
-          </div>
-        </div>
-        );
+      return this.emptyError()
     }
+    else {
       return (
         <div>
           <div className={BorneStyle.setting}>
@@ -83,6 +88,7 @@ componentDidMount() {
         </div>
       );
     }
+  }
 }
 
 function mapStateToProps(state) {

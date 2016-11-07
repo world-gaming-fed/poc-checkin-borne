@@ -26,19 +26,16 @@ class ProgressBar extends Component {
   updateData() {
     fetch('http://localhost:3001/eventcheckincount/' + this.props.capacity)
     .then(function(response) {
-          console.log(response)
       if (response.status >= 400) {
         throw new Error(response)
        }
       return response.json();
     }.bind(this))
     .then(function(Number_participant) {
-      console.log(Number_participant.number)
       this.setState({counter: Number_participant.number, counterPercent: Number_participant.number * (100 / this.props.capacity)})
       return
     }.bind(this))
     .catch(function(err) {
-      console.log(err)
     })
   }
 

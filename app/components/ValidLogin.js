@@ -20,7 +20,6 @@ class ValidationLogin extends Component {
 
   componentDidMount() {
      if (this.props.params.uuid == "e18db8d4-75d7-11e6-8b77-86f30ca893d3") {
-       console.log(this.props.params.uuid)
        this.props.router.push('/')
      }
      else {

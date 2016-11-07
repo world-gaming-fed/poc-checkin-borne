@@ -46,11 +46,9 @@ class Login extends Component {
         <p>VEUILLEZ SCANNEZ VOTRE QRCODE <br/> D'ORGANISATEUR</p>
       </div>
     )
-    console.log(this.state.result)
     if (this.state.result) {
       if (this.isValid(this.state.result)) {
         var playerUUID = this.getPlayerFromUUID(this.state.result)
-        console.log(playerUUID)
         this.props.router.push('/ValidationLogin/' + playerUUID);
       }
       else {
