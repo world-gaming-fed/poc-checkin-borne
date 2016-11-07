@@ -22,7 +22,7 @@ const SearchEvent = React.createClass({
   },
 
   getItemsAsync: function(searchValue, cb) {
-    const url = 'http://www.wgf.gg/api/events';
+    const url = 'http://www.wgf.gg/api/tournaments';
     const query = {
       filter: {
         per_page: 10,
@@ -30,7 +30,7 @@ const SearchEvent = React.createClass({
       }
     }
 
-    const fetchUrl = url + '?' + qs.stringify(query)
+    const fetchUrl = url /*+ '?' + qs.stringify(query)*/
     if (searchValue.length <= 0) {
       return null
     }
@@ -39,10 +39,10 @@ const SearchEvent = React.createClass({
           return response.json();
         })
      .then((results) => {
-        if(results.elements != undefined) {
-          let items = _.filter(results.elements, {type: "TOURNAMENT"})
-          items = items.map( (item, i) => {return {id: i, value: item.name } })
-          this.setState({ events: items, originalEvents: _.filter(results.elements, {type: "TOURNAMENT"})})
+        if(results != undefined) {
+          let items = /*_.filter(results.elements, {type: "TOURNAMENT"})*/ results.elements
+          items = items.map( (item, i) => {return {id: i, value: item.name.default } })
+          this.setState({ events: items, originalEvents:  /*_.filter*/results.elements})
           cb(searchValue)
         }
       })
@@ -51,18 +51,10 @@ const SearchEvent = React.createClass({
   onItemsChanged: function(selectedItems) {
     if (selectedItems != '— None') {
       const selectItems = this.state.originalEvents[selectedItems[0].id]
-      this.props.stock(selectItems.id)
+      this.props.stock(selectItems.childOf)
     }
   },
-
-  onKeyChange: function(item) {
-    console.log(item)
-  },
-
-  myfunc: function(e) {
-      console.log(e.currentTarget.value);
-    },
-
+  
   render: function() {
 
     return (

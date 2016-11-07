@@ -49,11 +49,9 @@ componentDidMount() {
         <div className={styles.container}>
           <h2>Bienvenue sur la Borne</h2> <br/>
           <Link to="/setting">
-            <a>
               <div className={BorneStyle.bord}>
                 <p> Veuillez configurer votre tournoi ici</p>
               </div>
-            </a>
           </Link>
         </div>
       </div>

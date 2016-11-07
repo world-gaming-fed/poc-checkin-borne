@@ -41,9 +41,9 @@ import { Line, Circle } from 'rc-progress';
      .then(function(tournament) {
         var startDate = tournament.elements[0].dates[0].start
         var chrono = moment.utc(startDate).locale('fr');
+        name: tournament.elements[0].name.fr
+        start: startDate
           this.setState({
-            name: tournament.elements[0].name.fr,
-            start: startDate,
             utcDate: chrono
           })
           this.timer = setInterval(() =>{

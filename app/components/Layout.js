@@ -35,7 +35,7 @@ class Layout extends Component {
           <EventContainer eventId={eventId}>
             {this.props.children}
           </EventContainer>
-          <div>
+          <div className={Progresstyle.posit}>
             <br/>
             <ProgressBar/>
           </div>
