@@ -46,14 +46,14 @@ import { Line, Circle } from 'rc-progress';
           this.setState({
             utcDate: chrono
           })
-          this.timer = setInterval(() =>{
-            var date = this.state.utcDate
-            var compt = date.add(1, 's')
+          this.timer = setInterval(() => {
+            var date = this.state.utcDate;
+            var compt = date.add(1, 's');
             this.setState({
              hours: compt.toNow(),
            })
          }, 1000);
-      this.props.setCapacity(tournament.elements[0].maximumCapacity)
+      this.props.setCapacity(tournament.elements[0].maximumCapacity);
       }.bind(this))
     }
     else {

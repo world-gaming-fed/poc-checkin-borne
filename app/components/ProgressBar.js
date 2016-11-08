@@ -43,7 +43,7 @@ class ProgressBar extends Component {
     this.updateData()
     this.interval = setInterval(() => {
       this.updateData();
-    }, 1000);
+    }, 5000);
   }
 
   componentWillUnmount () {

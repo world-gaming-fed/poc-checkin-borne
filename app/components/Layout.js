@@ -15,11 +15,15 @@ import Progresstyle from './progressBar.css'
 
 class Layout extends Component {
 
-  render () {
-    const eventId = this.props.eventId
+  componentDidMount () {
     if (_.isEmpty(this.props.eventId)) {
     this.props.router.push('/')
     }
+    return null
+  }
+
+  render () {
+    const eventId = this.props.eventId
     return (
         <div>
           <div className={LayStyles.layout}>
