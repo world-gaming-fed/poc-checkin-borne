@@ -46,11 +46,9 @@ class QrCode extends Component {
         <p>SCANNEZ VOTRE <br/> QRCODE SUR LA BORNE</p>
       </div>
     )
-    console.log(this.state.result)
     if (this.state.result) {
-      if (this.isValid(this.state.result)) {
+      if (this.isValid(+this.state.result)) {
         var playerUUID = this.getPlayerFromUUID(this.state.result)
-        console.log(playerUUID)
         this.props.router.push('/validation/' + playerUUID);
       }
       else {

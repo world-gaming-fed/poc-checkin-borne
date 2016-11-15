@@ -69,8 +69,8 @@ import { Line, Circle } from 'rc-progress';
       return (
         <div>
           <div className={styles.container}>
-            <h2>BIENVENUE SUR <br/> LA BORNE D'INSCRIPTION </h2>
-            <img src="http://www.icone-png.com/png/0/94.png" height="45px" width="45px"/>
+            <h2>BIENVENUE SUR <br/> LA BORNE D'INSCRIPTION</h2>
+            <img src="http://www.icone-png.com/png/26/26224.png" height="60px" width="60px"/>
             <p>Fin du check-in {this.state.hours}</p>
             <ButtonControl/>
           </div>

@@ -54,7 +54,7 @@ const SearchEvent = React.createClass({
       this.props.stock(selectItems.childOf)
     }
   },
-  
+
   render: function() {
 
     return (
@@ -78,6 +78,7 @@ const SearchEvent = React.createClass({
     );
   }
 })
+
 function mapStateToProps(state) {
   return {
     eventId: state.event.eventId,

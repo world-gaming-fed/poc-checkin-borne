@@ -33,19 +33,3 @@ export default (
     <Route path="/search" component={SearchEvent}/>
   </Route>
 );
-
-/* export default (
-  <Route path="/app" component={App}>
-    <IndexRoute component={HomePage}/> // Bienvenue sur la borne, choisissez un mode
-    <Route path="/settings" component={Settings}>
-      <Route path="/event" component={SearchEvent}/>
-    </Route>
-    <Route path="/checkin" component={CheckinLayout}>
-      <IndexRoute component={HomeCheckin} />
-      <Route path="/QrCode" component={QrCode}/>
-      <Route path="/validation/:uuid" component={Validation}/>
-      <Route path="felicitation/:name" component={Felicitation}/>
-      <Route path="/invalid" component={Invalid}/>
-    </Route>
-  </Route>
-);*/

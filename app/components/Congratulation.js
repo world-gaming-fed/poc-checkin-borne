@@ -35,7 +35,10 @@ class Felicitation extends Component {
           <img src="./components/asset/wrong.svg" alt="congratulation" height="133px" width="133px"/>
         </div>
         <div className={styles.container}>
-          <a><br/>{this.props.params.name} <br/> Inscription validée</a>
+          <a>
+            <br/> {this.props.params.name} <br/>
+            Inscription validée
+          </a>
           <br/><Link to="/checkin"><Btn>OK</Btn></Link>
         </div>
       </div>

@@ -19,7 +19,7 @@ class EventContainer extends Component {
     return (
       <div>
         <EventHeader event={event}/>
-        { this.props.children }
+        {this.props.children}
       </div>
     );
   }
